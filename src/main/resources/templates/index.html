@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Buckets S3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/tailwind.config.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body class="bg-ash-gray min-h-screen">
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold mb-8 text-center text-charcoal animate-fadeIn">Gestión de Buckets en AWS S3</h1>
+
+    <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-xl">
+            <h2 class="text-2xl font-semibold mb-4 text-dark-slate-gray">Crear Bucket</h2>
+            <form action="/crear" method="post" class="space-y-4">
+                <input type="text" name="nombreBucket" placeholder="Nombre del bucket" required
+                       class="w-full px-3 py-2 border border-cambridge-blue rounded-md focus:outline-none focus:ring-2 focus:ring-hookers-green transition duration-300">
+                <button type="submit"
+                        class="w-full bg-hookers-green text-white py-2 px-4 rounded-md hover:bg-dark-slate-gray transition duration-300 transform hover:scale-105">
+                    Crear Bucket
+                </button>
+            </form>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-xl">
+            <h2 class="text-2xl font-semibold mb-4 text-dark-slate-gray">Subir Archivo</h2>
+            <form action="/subir" method="post" enctype="multipart/form-data" class="space-y-4">
+                <input type="file" name="nombreArchivo" required
+                       class="w-full px-3 py-2 border border-cambridge-blue rounded-md focus:outline-none focus:ring-2 focus:ring-hookers-green transition duration-300">
+                <input type="text" name="nombreBucket" placeholder="Nombre del bucket" required
+                       class="w-full px-3 py-2 border border-cambridge-blue rounded-md focus:outline-none focus:ring-2 focus:ring-hookers-green transition duration-300">
+                <button type="submit"
+                        class="w-full bg-cambridge-blue text-white py-2 px-4 rounded-md hover:bg-hookers-green transition duration-300 transform hover:scale-105">
+                    Subir archivo
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="mt-8 bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-xl">
+        <h2 class="text-2xl font-semibold mb-4 text-dark-slate-gray">Listar Buckets</h2>
+        <ul class="space-y-4">
+            <li th:each="bucket : ${buckets}" class="border-b border-ash-gray pb-4 last:border-b-0">
+                <div class="flex items-center justify-between">
+                    <strong th:text="${bucket.name}" class="text-lg text-charcoal"></strong>
+                    <div class="space-x-2">
+                        <form action="/borrar" method="post" class="inline">
+                            <input type="hidden" name="nombreBucket" th:value="${bucket.name}">
+                            <button type="submit"
+                                    class="bg-dark-slate-gray text-white py-1 px-3 rounded-md hover:bg-charcoal transition duration-300 transform hover:scale-105">
+                                Borrar
+                            </button>
+                        </form>
+                        <form action="/vaciar" method="post" class="inline">
+                            <input type="hidden" name="nombreBucket" th:value="${bucket.name}">
+                            <button type="submit"
+                                    class="bg-hookers-green text-white py-1 px-3 rounded-md hover:bg-dark-slate-gray transition duration-300 transform hover:scale-105">
+                                Vaciar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <ul class="mt-2 pl-4">
+                    <li th:each="archivo : ${archivosPorBucket[bucket.name]}" class="flex items-center justify-between py-1">
+                        <span th:text="${archivo.key}" class="text-gray-600"></span>
+                        <form action="/borrarArchivo" method="post" class="inline">
+                            <input type="hidden" name="nombreBucket" th:value="${bucket.name}">
+                            <input type="hidden" name="nombreArchivo" th:value="${archivo.key}">
+                            <button type="submit"
+                                    class="bg-cambridge-blue text-white py-1 px-2 rounded-md text-sm hover:bg-hookers-green transition duration-300 transform hover:scale-105">
+                                Borrar Archivo
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mt-8 bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-xl">
+        <h2 class="text-2xl font-semibold mb-4 text-dark-slate-gray">Descargar Archivo</h2>
+        <form action="/descargarArchivo" method="post" class="space-y-4">
+            <input type="text" name="nombreArchivo" placeholder="Nombre del archivo" required
+                   class="w-full px-3 py-2 border border-cambridge-blue rounded-md focus:outline-none focus:ring-2 focus:ring-hookers-green transition duration-300">
+            <input type="text" name="nombreBucket" placeholder="Nombre del bucket" required
+                   class="w-full px-3 py-2 border border-cambridge-blue rounded-md focus:outline-none focus:ring-2 focus:ring-hookers-green transition duration-300">
+            <button type="submit"
+                    class="w-full bg-dark-slate-gray text-white py-2 px-4 rounded-md hover:bg-charcoal transition duration-300 transform hover:scale-105">
+                Descargar archivo
+            </button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
