@@ -136,7 +136,6 @@ public class S3Service {
         }
     }
 
-    // Método para borrar un archivo de un bucket
     public void borrarArchivo(String bucketName, String fileName) {
         try {
             amazonS3.deleteObject(bucketName, fileName);
@@ -145,4 +144,5 @@ public class S3Service {
             throw new S3ServiceException("Error al eliminar el archivo: " + e.getMessage());
         }
     }
+
 }

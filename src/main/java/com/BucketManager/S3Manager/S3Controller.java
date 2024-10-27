@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import software.amazon.awssdk.services.s3.model.Bucket;
 import software.amazon.awssdk.services.s3.model.S3Object;
 
@@ -72,10 +73,15 @@ public class S3Controller {
     }
 
     @PostMapping("/borrarArchivo")
-    public String borrarArchivo(@RequestParam String nombreBucket, @RequestParam String nombreArchivo) {
+    public String borrarArchivo(@RequestParam String nombreBucket, @RequestParam String nombreArchivo, RedirectAttributes redirectAttributes) {
         System.out.println("Bucket: " + nombreBucket + ", Archivo: " + nombreArchivo);
-        s3Service.borrarArchivo(nombreBucket, nombreArchivo);
-        return "redirect:/listarArchivos?nombreBucket=" + nombreBucket;
+        try {
+            s3Service.borrarArchivo(nombreBucket, nombreArchivo);
+            redirectAttributes.addFlashAttribute("message", "Archivo eliminado exitosamente del bucket " + nombreBucket);
+        } catch (S3ServiceException e) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Error al eliminar el archivo: " + e.getMessage());
+        }
+        return "redirect:/";
     }
 
 
