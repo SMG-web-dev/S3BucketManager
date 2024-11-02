@@ -1,3 +1,47 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+:root {
+    --ash-gray: #cad2c5ff;
+    --cambridge-blue: #84a98cff;
+    --hookers-green: #52796fff;
+    --dark-slate-gray: #354f52ff;
+    --charcoal: #2f3e46ff;
+}
+
+body {
+    background-color: var(--charcoal);
+    color: var(--ash-gray);
+}
+
+/* Estilos personalizados */
+.text-ash-gray { color: var(--ash-gray); }
+.text-dark-slate-gray { color: var(--dark-slate-gray); }
+.text-charcoal { color: var(--charcoal); }
+.text-cambridge-blue { color: var(--cambridge-blue); }
+.text-hookers-green { color: var(--hookers-green); }
+
+.bg-ash-gray { background-color: var(--ash-gray); }
+.bg-dark-slate-gray { background-color: var(--dark-slate-gray); }
+.bg-charcoal { background-color: var(--charcoal); }
+.bg-cambridge-blue { background-color: var(--cambridge-blue); }
+.bg-hookers-green { background-color: var(--hookers-green); }
+
+/* Botones y contenedores con efectos */
+button:hover, .hover\:bg-charcoal:hover { background-color: var(--charcoal); }
+button:hover, .hover\:bg-hookers-green:hover { background-color: var(--hookers-green); }
+button:hover, .hover\:bg-cambridge-blue:hover { background-color: var(--cambridge-blue); }
+
+/* Clases de texto para los formularios */
+input, select, button {
+    color: var(--ash-gray);
+    background-color: var(--charcoal);
+    border: 1px solid var(--cambridge-blue);
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--hookers-green);
+}
+
