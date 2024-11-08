@@ -1,8 +1,8 @@
-package com.BucketManager.S3Manager;
+package com.BucketManager.S3Manager.s3;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.AmazonS3Exception;
-import com.BucketManager.S3Manager.S3ServiceException;
+import com.BucketManager.S3Manager.exception.S3ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import software.amazon.awssdk.core.ResponseBytes;

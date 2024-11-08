@@ -1,19 +1,17 @@
-package com.BucketManager.S3Manager;
+package com.BucketManager.S3Manager.s3;
 
-import com.BucketManager.S3Manager.S3Service;
+import com.BucketManager.S3Manager.exception.S3ServiceException;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import software.amazon.awssdk.services.s3.model.Bucket;
 import software.amazon.awssdk.services.s3.model.S3Object;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -24,9 +22,14 @@ import java.util.Map;
 public class S3Controller {
 
     private final S3Service s3Service;
-
     public S3Controller(S3Service s3Service) {
         this.s3Service = s3Service;
+    }
+
+    @CrossOrigin(origins = "http://localhost:8081") // Cambia el puerto si es necesario
+    @GetMapping("/api/example")
+    public String exampleEndpoint() {
+        return "Hello from Spring Boot!";
     }
 
     @GetMapping("/")
@@ -52,6 +55,7 @@ public class S3Controller {
 
         return "index";
     }
+
 
     @PostMapping("/subir")
     public String subirArchivo(@RequestParam("nombreArchivo") MultipartFile archivo,

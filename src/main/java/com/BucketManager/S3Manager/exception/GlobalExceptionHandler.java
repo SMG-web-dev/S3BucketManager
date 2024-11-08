@@ -1,4 +1,4 @@
-package com.BucketManager.S3Manager;
+package com.BucketManager.S3Manager.exception;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
