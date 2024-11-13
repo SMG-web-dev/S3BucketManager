@@ -12,7 +12,7 @@
 - [Contribuciones](#contribuciones)
 - [Licencia](#licencia)
 
-## 🚀 - Características
+## 🚀 Características
 - **Gestión de Buckets S3**: Crear, listar y eliminar buckets de S3.
 - **Monitoreo en Tiempo Real**: Rastreo de métricas de uso y registros de actividad en los buckets.
 - **Manejo de Errores**: Excepciones personalizadas para mejorar el rendimiento.
