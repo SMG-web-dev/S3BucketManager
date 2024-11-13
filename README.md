@@ -1,77 +1,85 @@
-S3BucketsManager 📂
-S3BucketsManager es una aplicación que facilita la administración y monitoreo de buckets en Amazon S3, diseñada con Java y Spring para su integración con servicios AWS, y desarrollada con un frontend en HTML y TailwindCSS. Este proyecto también soporta despliegue en Docker para una fácil administración de contenedores y acceso en la nube.
+# S3BucketsManager 📂
 
-📌 Table of Contents
-Features
-Tech Stack
-Project Structure
-Setup
-Dependencies
-Usage
-Contributing
-License
-🚀 Features
-S3 Bucket Management: Create, list, and delete S3 buckets.
-Real-time Monitoring: Track and log metrics for S3 bucket usage.
-Error Handling: Custom exception handling to ensure smooth performance.
-ECS Integration: Designed for seamless deployment in AWS ECS.
-Responsive UI: Built with TailwindCSS for optimal user experience across devices.
-🛠️ Tech Stack
-Java (Spring Framework)
-HTML & TailwindCSS
-Docker (Containerization)
-AWS Services (S3, ECS)
-📂 Project Structure
-The codebase is organized as follows:
+**S3BucketsManager** es una aplicación para administrar y monitorear buckets de Amazon S3. Construida con Java y Spring para su integración con AWS, la aplicación cuenta con un frontend en HTML y TailwindCSS. Este proyecto soporta despliegue en Docker, facilitando el manejo de contenedores y el acceso en la nube.
 
-bash
-Copiar código
+## 📌 Tabla de Contenidos
+- [Características](#características)
+- [Tecnologías](#tecnologías)
+- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Instalación](#instalación)
+- [Dependencias](#dependencias)
+- [Uso](#uso)
+- [Contribuciones](#contribuciones)
+- [Licencia](#licencia)
+
+## 🚀 Características
+- **Gestión de Buckets S3**: Crear, listar y eliminar buckets de S3.
+- **Monitoreo en Tiempo Real**: Rastreo de métricas de uso y registros de actividad en los buckets.
+- **Manejo de Errores**: Excepciones personalizadas para mejorar el rendimiento.
+- **Integración con ECS**: Preparada para despliegues en AWS ECS.
+- **Interfaz Responsiva**: Construida con TailwindCSS para una experiencia de usuario óptima en cualquier dispositivo.
+
+## 🛠️ Tecnologías
+- **Java** (Spring Framework)
+- **HTML** & **TailwindCSS**
+- **Docker** (Contenerización)
+- **Servicios AWS** (S3, ECS)
+
+## 📂 Estructura del Proyecto
+La estructura del código se organiza de la siguiente manera:
+
+```plaintext
 src/main/java/com/example/S3BucketsManager
 │
-├── ecs          # AWS ECS integration
-├── s3           # Amazon S3 bucket operations
-├── exception    # Custom exception handling
-└── metrics      # Monitoring and logging of application metrics
-📦 Dependencies
-Below are the main dependencies required, listed in pom.xml:
+├── ecs          # Integración con AWS ECS
+├── s3           # Operaciones con Amazon S3
+├── exception    # Manejo personalizado de excepciones
+└── metrics      # Monitoreo y registro de métricas
+```
 
-Spring Boot for core application functionality
-Spring Cloud AWS for seamless integration with AWS
-Dockerfile for containerized deployments
-Metrics for real-time monitoring
-TailwindCSS for responsive frontend design
-⚙️ Setup
-To get this project running locally:
+## 📦 Dependencias
+Las principales dependencias, incluidas en `pom.xml`, son:
 
-Clone the Repository
-bash
-Copiar código
-git clone https://github.com/SMG-web-dev/S3BucketManager.git
-Navigate to the Project Directory
-bash
-Copiar código
-cd S3BucketManager
-Build the Project
-bash
-Copiar código
-mvn clean install
-Run the Application
-bash
-Copiar código
-mvn spring-boot:run
-Docker Deployment (optional)
-bash
-Copiar código
-docker build -t s3bucketmanager .
-docker run -p 8080:8080 s3bucketmanager
-📖 Usage
-Once running, you can access the application at http://localhost:8080 and start managing your S3 buckets.
+- **Spring Boot**: Para la funcionalidad central de la aplicación.
+- **Spring Cloud AWS**: Para integración fluida con AWS.
+- **Dockerfile**: Para despliegues en contenedores.
+- **Metrics**: Monitoreo en tiempo real.
+- **TailwindCSS**: Para un diseño frontend responsivo.
 
-Create Buckets: Easily create and configure new S3 buckets.
-Monitor Buckets: Access real-time metrics and log activity.
-Manage Resources: View, update, or delete existing buckets with custom settings.
-🤝 Contributing
-Feel free to fork this repository, make enhancements, and submit a pull request. All contributions are welcome!
+## ⚙️ Instalación
+Para ejecutar el proyecto localmente, sigue estos pasos:
 
-📝 License
-This project is licensed under the MIT License.
+1. **Clona el Repositorio**
+    ```bash
+    git clone https://github.com/SMG-web-dev/S3BucketManager.git
+    ```
+2. **Navega al Directorio del Proyecto**
+    ```bash
+    cd S3BucketManager
+    ```
+3. **Construye el Proyecto**
+    ```bash
+    mvn clean install
+    ```
+4. **Ejecuta la Aplicación**
+    ```bash
+    mvn spring-boot:run
+    ```
+5. **Despliegue en Docker** *(opcional)*
+    ```bash
+    docker build -t s3bucketmanager .
+    docker run -p 8080:8080 s3bucketmanager
+    ```
+
+## 📖 Uso
+Una vez en ejecución, accede a la aplicación en `http://localhost:8080` para administrar tus buckets de S3:
+
+1. **Crear Buckets**: Crea y configura buckets de S3 fácilmente.
+2. **Monitorear Buckets**: Accede a métricas en tiempo real y registros de actividad.
+3. **Gestionar Recursos**: Visualiza, actualiza o elimina buckets existentes.
+
+## 🤝 Contribuciones
+¡Todas las contribuciones son bienvenidas! Siéntete libre de hacer un fork del repositorio, realizar mejoras y enviar un pull request.
+
+## 📝 Licencia
+Este proyecto está licenciado bajo la licencia MIT. Consulta el archivo `LICENSE` para más detalles.
