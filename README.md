@@ -13,7 +13,7 @@
 - **Java** (Spring Framework)
 - **Servicios AWS** (S3, ECS)
 - **HTML** & **TailwindCSS**
-- **Docker** (Contenerización)
+- **Docker** (Imagen a AWS ECR)
 
 ## 📂 Estructura del Proyecto
 La estructura del código se organiza de la siguiente manera:
