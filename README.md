@@ -1,6 +1,6 @@
 # S3BucketsManager 📂
 
-**S3BucketsManager** es una aplicación para administrar y monitorear buckets de Amazon S3. Construida con Java y Spring para su integración con AWS, la aplicación cuenta con un frontend en HTML y TailwindCSS. Este proyecto soporta despliegue en Docker, facilitando el manejo de contenedores y el acceso en la nube.
+**S3BucketsManager** es una aplicación para administrar y monitorear buckets de Amazon S3. Construida con Java Maven y Spring para su integración con AWS, la aplicación cuenta con un frontend en HTML y TailwindCSS. Este proyecto soporta despliegue en Docker, facilitando el manejo de contenedores y el acceso en la nube.
 
 ## 🚀 Características
 - **Gestión de Buckets S3**: Crear, listar y eliminar buckets de S3.
@@ -58,7 +58,7 @@ Para ejecutar el proyecto localmente, sigue estos pasos:
 5. **Despliegue en Docker** *(opcional)*
     ```bash
     docker build -t s3bucketmanager .
-    docker run -p 8080:8080 s3bucketmanager
+    docker run -p 8081:8081 s3bucketmanager
     ```
 
 ## 📖 Uso
